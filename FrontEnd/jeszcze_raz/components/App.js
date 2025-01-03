@@ -83,13 +83,12 @@ const DivTwo = () => {
 function HelloJSX () {
   return (
     <div>
-      <SearchBar />
       <DivOne />
       <DivTwo />
     </div>
   );
 }
+
+HelloJSX()
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(<HelloJSX/>);
-
-console.log(fetchPokemonData())
