@@ -1,3 +1,6 @@
+
+import AddToFavs from "./addToFav"
+
 export default async function PokemonDetails ({id}){
     
     const getPokemonDetails = async (id) => {
@@ -13,12 +16,13 @@ export default async function PokemonDetails ({id}){
     
     const pokemonDetails = await getPokemonDetails(id)
     
-    const {name, sprites: {front_default}, types, weight, height, stats} = pokemonDetails;
+    const {name, sprites: {front_default}, types, weight, height, stats, heart = "false"} = pokemonDetails;
 
     return <div id="detailContainer">
         <div id="pokemonImageBox">
             <p>{name} #{id}</p>
             <img src={front_default}></img>
+            <AddToFavs id = {id}/>
         </div>
 
         <div id="pokemonDetailBox">
@@ -32,7 +36,4 @@ export default async function PokemonDetails ({id}){
             )}
         </div>
     </div>
-
- 
-
 }
